@@ -19,7 +19,7 @@ int main() {
     std::cin >> h;
     C = 2 * D * dt / (dx * dx);
     std::cout << "C=" << C << std::endl;
-
+    h=h*dt;
     double t2[DIM1];
     for (int k = 0; k < DIM1; k++) {
         t2[k] = 0;
