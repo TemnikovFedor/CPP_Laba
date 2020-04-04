@@ -24,7 +24,6 @@ int main() {
     for (int k = 0; k < DIM1; k++) {
         t2[k] = 0;
     }
-    h = h * dt;
     auto start = std::chrono::system_clock::now();
     if (Choose == 'E') {
         for (int i = 1; i <= iter; i++) {
