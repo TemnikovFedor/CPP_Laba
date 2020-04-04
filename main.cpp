@@ -3,7 +3,6 @@
 #include "Implicit.h"
 #include "Explicit.h"
 #include <omp.h>
-#include <fstream>
 int main() {
     double T0, T1, h;
     int DIM1 = 11, m, iter = 5000;
