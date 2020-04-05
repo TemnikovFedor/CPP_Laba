@@ -29,8 +29,7 @@ int main() {
         t2[k] = 0;
     }
 
-    // check this out: if all works you will see correct number of threads
-    // with current CMakeLists.txt I can't even compile this (see comments in CMakeLists.txt)
+    // check this out: export OMP_NUM_THREADS=4 before program run and if all works you will see corresponding number of threads
 #pragma omp parallel
     {
 #pragma omp single
@@ -47,17 +46,15 @@ int main() {
             implic(DIM1, C, t2, T0, T1, h, m);
         }
     }
+    auto end = std::chrono::system_clock::now();
+    std::chrono::duration<double> elapsed = end - start;
+    std::cout << "Elapsed parallel time: " << elapsed.count() << std::endl;
     
     std::cout << T0 << " ";
     for (int k = 0; k < DIM1; k++) {
       std::cout << t2[k] << " ";
     }
     std::cout << T1 << std::endl;
-
-    // printing is also included in time measurement. this could have impact on the results
-    auto end = std::chrono::system_clock::now();
-    std::chrono::duration<double> elapsed = end - start;
-    std::cout << "Elapsed parallel time: " << elapsed.count() << std::endl;
 
 }
 
